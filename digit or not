@@ -1,0 +1,41 @@
+%{
+#include<stdio.h>
+%}
+%%
+[0-9] { printf("it is a digit"); }
+.+ { printf("it is not a digit"); }
+%%
+int yywrap() { }
+int main()
+{
+while (yylex());
+}
+
+output:
+
+C:\Users\sse\Desktop\14>set path=C:\Program Files\GnuWin32\bin
+
+C:\Users\sse\Desktop\14>flex digit.l.txt
+
+C:\Users\sse\Desktop\14>set path=C:\MinGW\bin
+
+C:\Users\sse\Desktop\14>gcc lex.yy.c
+
+C:\Users\sse\Desktop\14>a
+34
+it is not a digit
+1
+it is a digit
+^Z
+
+C:\Users\sse\Desktop\14>set path=C:\Program Files\GnuWin32\bin
+
+C:\Users\sse\Desktop\14>flex digit.l.txt
+
+C:\Users\sse\Desktop\14>set path=C:\MinGW\bin
+
+C:\Users\sse\Desktop\14>gcc lex.yy.c
+
+C:\Users\sse\desktop\14>a
+12
+it is not a digit
